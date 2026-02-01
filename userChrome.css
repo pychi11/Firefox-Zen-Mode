@@ -1,0 +1,92 @@
+/* Centers and floats the address bar when expanded */
+/*#urlbar[breakout][breakout-extend] {
+  top: 40vh !important;
+  left: 20vw !important;
+  width: 60vw !important;
+  border-radius: 12px !important;
+}*/
+
+/* Optional: Clean up the main bar background */
+/* #urlbar-background { */
+/*   border: none !important; */
+/* } */
+
+/* Auto-hide the top toolbar */
+/**/
+/* /* Show the toolbar when hovering near the top */ */
+/* #navigator-toolbox:hover { */
+/*   transform: translateY(0); */
+/* } */
+/* Ensure the area below the toolbar moves up to fill the gap when hidden */
+
+/* Ensure the area below the toolbar moves up to fill the gap when hidden */
+#main-window:not([inDOMFullscreen]) #appcontent {
+  margin-top: -2em !important; /* Adjust if your toolbar height is different */
+}
+
+#browser{
+  position: fixed !important;
+  height: 100vh !important;
+  width: 100vw !important;
+  /* top: 10vh !important; */
+}
+
+#navigator-toolbox{
+  z-index: 100 !important;
+}
+
+
+/* 1. DEFAULT STATE: Hidden (Rolled Up) */
+#navigator-toolbox,
+#urlbar{
+  /* This delay is key for preventing "glance" issues */
+  transition: transform 0.4s ease-out 0.5s !important; 
+  transform: translateY(-95%) !important; 
+}
+
+/* 2. HOVER STATE: Revealed (Rolled Down) */
+#navigator-toolbox:hover,
+#urlbar:hover{
+
+  /* Instant reaction when entering hover */
+  transform: translateY(0) !important;
+  transition: transform 0.2s cubic-bezier(0, 0, 0.2, 1) 0s !important;
+}
+
+#tabbrowser-tabbox{
+  position: fixed !important;
+  height: 100vh !important;
+  width: 100vw !important;
+  /* top: 10vh !important; */
+}
+
+
+
+#sidebar-main{
+  transition: transform 0.4s ease-out 0.5s !important; 
+  transform: translateX(-80%) !important; 
+  z-index: 100 !important;
+}
+
+#sidebar-main:hover{
+  transform: translateX(0) !important;
+  transition: transform 0.2s cubic-bezier(0, 0, 0.2, 1) 0s !important;
+}
+
+/* Floating centered Address Bar */
+#urlbar[breakout][breakout-extend] {
+  top: 40vh !important; /* Distance from top of screen */
+  left: 20vw !important;
+  width: 60vw !important;
+  border-radius: 16px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+}
+
+/* Center search result text and suggestions */
+.urlbarView {
+  margin-top: 10px !important;
+  background-color: var(--toolbar-bgcolor) !important;
+  border-radius: 12px !important;
+}
+
+
